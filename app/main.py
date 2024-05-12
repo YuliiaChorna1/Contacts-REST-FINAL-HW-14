@@ -22,6 +22,21 @@ origins = settings.cors_origins.split('|')
 
 @asynccontextmanager
 async def lifespan(_):
+    """
+    This is an asynchronous context manager that manages the lifespan of the application.
+
+    During the startup phase, it initializes the logger, establishes a connection to the Redis server, 
+    and initializes the FastAPILimiter.
+
+    During the shutdown phase, it disposes the engine, closes the Redis connection, 
+    and closes the FastAPILimiter. It also logs the shutdown message.
+
+    :param _: This parameter is not used in the function.
+    :type _: Any
+    :raises Exception: Any exceptions raised during the startup or shutdown phases will be propagated.
+    :return: This is a context manager and does not return a value.
+    :rtype: None
+    """
     #startup initialization goes here
     logger.info("Knock-knock...")
     logger.info("Uvicorn has you...")

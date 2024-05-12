@@ -9,7 +9,7 @@ import os
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-sys.path.append(os.path.abspath('..'))
+sys.path.append(os.path.abspath('../app'))
 project = 'Contacts'
 copyright = '2024, Yuliia Chorna'
 author = 'Yuliia Chorna'

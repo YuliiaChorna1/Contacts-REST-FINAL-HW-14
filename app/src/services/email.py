@@ -23,6 +23,22 @@ conf = ConnectionConfig(
 
 
 async def send_email(email: EmailStr, username: str, host: str):
+    """
+    Asynchronously sends an email to a specified recipient with a confirmation link.
+
+    This function creates an email token for the specified recipient, constructs an email message with the token and other details, and then sends the email using the FastMail service. If there are any connection errors during this process, they are caught and printed.
+
+    :param email: The recipient's email address.
+    :type email: EmailStr
+    :param username: The username of the recipient.
+    :type username: str
+    :param host: The host URL for the confirmation link.
+    :type host: str
+
+    :raises ConnectionErrors: If there are any issues with the connection during the email sending process.
+
+    :return: None
+    """
     try:
         token_verification = auth_service.create_email_token({"sub": email})
         message = MessageSchema(

@@ -32,6 +32,12 @@ class ContactUpdate(BaseModel):
 
     @property
     def is_dirty(self) -> bool:
+        """
+        This property checks if any attribute of the ContactUpdate instance has been modified.
+
+        :return: True if any attribute has been modified, otherwise False.
+        :rtype: bool
+        """
         return any(self.__dict__.values())
     
 
