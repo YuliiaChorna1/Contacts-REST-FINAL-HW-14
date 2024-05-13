@@ -8,7 +8,8 @@ import tests.unit.routes.test_unit_users
 import tests.unit.routes.test_unit_auth
 
 
+
 if __name__ == '__main__':
     # unittest.main()
     # unittest.main("tests.unit.test_unit_schemas")    
-    unittest.main("tests.unit.routes.test_unit_auth")    
+    unittest.main("tests.unit.routes.test_unit_users")    

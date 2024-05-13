@@ -19,16 +19,8 @@ class TestContacts(unittest.IsolatedAsyncioTestCase):
 
     def setUp(self):
         self.session = MagicMock(spec=Session)
-        #self.user = User(id=1)
         self.user = MagicMock(spec=User)
         self.user.id = 1
-        # self.user.username = "test"
-        # self.user.email = "test"
-        # self.user.password = "test"
-        # self.user.created_at = datetime.now()
-        # self.user.avatar = "test"
-        # self.user.refresh_token = "test"
-        # self.user.confirmed = True
         self.contacts = []
         for _ in range(3):
             self.contacts.append(MagicMock(spec=Contact))

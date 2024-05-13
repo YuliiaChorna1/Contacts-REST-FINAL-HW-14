@@ -22,23 +22,11 @@ class TestUsers(unittest.IsolatedAsyncioTestCase):
         self.user = MagicMock(spec=User)
         self.user.id = 1
         self.user.refresh_token = "test"
-        # self.user.username = "test"
-        # self.user.email = "test"
-        # self.user.password = "test"
-        # self.user.created_at = datetime.now()
-        # self.user.avatar = "test"
-        # self.user.refresh_token = "test"
-        # self.user.confirmed = True
 
     async def test_get_user_by_email_found(self):        
         self.session.query().filter().first.return_value = self.user
         result = await get_user_by_email(email="test", db=self.session)
         self.assertEqual(result, self.user)    
-
-    # async def test_get_contacts_by_birthdays(self):        
-    #     self.session.query().filter().filter().all.return_value = self.contacts
-    #     result = await get_contacts_by_birthdays(skip=0, limit=10, user=self.user, db=self.session)
-    #     self.assertEqual(result, self.contacts)
 
     async def test_get_user_by_email_not_found(self):
         self.session.query().filter().first.return_value = None
